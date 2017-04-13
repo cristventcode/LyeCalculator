@@ -1,0 +1,130 @@
+﻿
+
+<h3> Lye Calculator</h3>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            Type / Units
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <h4>Choose your soap type and measurement units.</h4>
+                        <hr />
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option selected="selected" value="-1">Type</option>
+                                <option value="solid">Solid</option>
+                                <option value="liquid">Liquid</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option selected="selected" value="-1">Unit</option>
+                                <option value="ounce">Ounces</option>
+                                <option value="gram">Grams</option>
+                                <option value="percent">Percentage</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option selected="selected" value="-1">Superfatting Level</option>
+                                <option value="0">None</option>
+                                @for (var x = 2; x <= 10; x++)
+                                {
+                                    <option value="@x"> @x%</option>
+                                }
+                            </select>
+                        </div>
+                        <button class="btn btn-sm btn-default"> Next </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                            Ingredients
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label>Select Ingredient:</label>
+                                    <select class="form-control">
+                                        <option>Aloe Butter</option>
+                                        <option>Horsetail Butter</option>
+                                        <option>Avacado Butter</option>
+                                        <option>Lime Butter</option>
+                                        <option>Coconut Butter</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-md btn-default"> Add </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <br />
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Ingredient</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>x</td>
+                                        <td>x</td>
+                                    </tr>
+                                    <tr>
+                                        <td>x</td>
+                                        <td>x</td>
+                                    </tr>
+                                    <tr>
+                                        <td>x</td>
+                                        <td>x</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                            Results
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+@section Scripts {
+    @Scripts.Render("~/Scripts/page-actions.js")
+}
