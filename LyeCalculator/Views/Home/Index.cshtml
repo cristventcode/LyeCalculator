@@ -66,12 +66,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Select Ingredient:</label>
-                                    <select class="form-control">
-                                        <option>Aloe Butter</option>
-                                        <option>Horsetail Butter</option>
-                                        <option>Avacado Butter</option>
-                                        <option>Lime Butter</option>
-                                        <option>Coconut Butter</option>
+                                    <select class="form-control" id="ingredient-select">
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -95,18 +90,6 @@
                                             <td><span class="ingredient-item">Almond Butter</span></td>
                                             <td><input value="24" class="form-control" /></td>
                                             <td class="text-center"><button class="btn btn-xs btn-default delete-btn">X</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="ingredient-item">Almond Butter</span></td>
-                                            <td><input value="24" class="form-control" /></td>
-                                            <td class="text-center"><button class="btn btn-xs btn-default delete-btn">X</button></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td><span class="ingredient-item">Almond Butter</span></td>
-                                            <td><input value="24" class="form-control" /></td>
-                                            <td class="text-center"><button class="btn btn-xs btn-default delete-btn">X</button></td>
-
                                         </tr>
                                     </tbody>
                                 </table>
@@ -222,5 +205,5 @@
 </div>
 <br />
 @section Scripts {
-    @Scripts.Render("~/Scripts/page-actions.js")
+    @Scripts.Render("~/Scripts/App/app.js")
 }
