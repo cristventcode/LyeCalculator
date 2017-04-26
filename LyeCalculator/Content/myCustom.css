@@ -1,0 +1,64 @@
+﻿body {
+}
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+
+table {
+    border-collapse: initial;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.table thead > tr > th {
+    border-bottom: none;
+}
+
+.delete-btn {
+    margin-top: 8px;
+}
+
+#amount-table > thead > tr > th:first-child {
+    width: 50%;
+}
+
+#result-table {
+    width: 100%;
+}
+
+.table-heading {
+    background-color: steelblue;
+    color: white;
+}
+
+.ingredient-item {
+    font-size: 14px;
+    padding: 6px 0px;
+    height: 34px;
+    display: block;
+    line-height: 1.428571429;
+}
+
+/*.result-tb-hd-total{
+    background-color: lightgray;
+    color: steelblue;
+}*/
+
+.recipe-info input, textarea{
+    max-width: none;
+}
+
+@media (min-width: 768px) {
+    #amount-table > thead > tr > th:first-child {
+        width: 30%;
+    }
+
+    #result-table {
+    }
+}

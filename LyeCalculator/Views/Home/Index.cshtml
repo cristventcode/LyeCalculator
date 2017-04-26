@@ -9,11 +9,11 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                            Type / Units
+                            Step 1 - Type / Units
                         </a>
                     </h4>
                 </div>
-                <div id="collapse1" class="panel-collapse collapse in">
+                <div id="collapse1" class="panel-collapse collapse">
                     <div class="panel-body">
                         <h4>Choose your soap type and measurement units.</h4>
                         <hr />
@@ -42,7 +42,7 @@
                                 }
                             </select>
                         </div>
-                        <button class="btn btn-sm btn-default"> Next </button>
+                        <button class="btn btn-xs btn-success"> Add Ingredients </button>
                     </div>
                 </div>
             </div>
@@ -50,14 +50,20 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                            Ingredients
+                            Step 2 - Ingredients
                         </a>
                     </h4>
                 </div>
                 <div id="collapse2" class="panel-collapse collapse">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="panel-body">
+                    <div class="panel-body">
+                        @*<div class="col-xs-12">
+
+                            </div>*@
+                        <h4>What are your ingredient amounts by weight? </h4>
+                        <hr />
+                        <div class="row">
+
+                            <div class="col-sm-4">
                                 <div class="form-group">
                                     <label>Select Ingredient:</label>
                                     <select class="form-control">
@@ -72,32 +78,40 @@
                                     <button class="btn btn-md btn-default"> Add </button>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <br />
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Ingredient</th>
-                                        <th>Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>x</td>
-                                        <td>x</td>
-                                    </tr>
-                                    <tr>
-                                        <td>x</td>
-                                        <td>x</td>
-                                    </tr>
-                                    <tr>
-                                        <td>x</td>
-                                        <td>x</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                            <div class="col-sm-8">
+                                <label>Your Ingredients:</label>
+                                <table class="table" id="amount-table">
+                                    <thead>
+                                        <tr class="table-heading">
+                                            <th>Ingredient</th>
+                                            <th>Amount (grams)</th>
+                                            <th class="text-center">X</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="ingredient-item">Almond Butter</span></td>
+                                            <td><input value="24" class="form-control" /></td>
+                                            <td class="text-center"><button class="btn btn-xs btn-default delete-btn">X</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ingredient-item">Almond Butter</span></td>
+                                            <td><input value="24" class="form-control" /></td>
+                                            <td class="text-center"><button class="btn btn-xs btn-default delete-btn">X</button></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><span class="ingredient-item">Almond Butter</span></td>
+                                            <td><input value="24" class="form-control" /></td>
+                                            <td class="text-center"><button class="btn btn-xs btn-default delete-btn">X</button></td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-xs btn-success"> Get Results </button>
+                            </div>
                         </div>
 
                     </div>
@@ -108,16 +122,98 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                            Results
+                            Step 3 - Results
                         </a>
                     </h4>
                 </div>
-                <div id="collapse3" class="panel-collapse collapse">
+                <div id="collapse3" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
+                        <h4>A <b>Solid</b> soap, measured in <b>Grams</b> with a superfat of <b>0%</b></h4>
+                        <hr />
+
+
+
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <table class="table" id="result-table">
+                                    <tr class="table-heading">
+                                        <th>Lye & Liquid</th>
+                                        <th>Amount</th>
+                                        <th></th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Lye (Sodium Hydroxide)</td>
+                                        <td>0.36 grams</td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Grams of liquid</td>
+                                        <td>0.66 grams</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Total</b></td>
+                                        <td>1.02 grams</td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr class="table-heading">
+                                        <th>Oils & Fats</th>
+                                        <th>Amount</th>
+                                        <th>%</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Grams of liquid</td>
+                                        <td>0.66 grams</td>
+                                        <td>100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Total</b></td>
+                                        <td>1.02 grams</td>
+                                        <td>100%</td>
+                                    </tr>
+                                    <tr>
+                                    <tr class="table-heading">
+                                        <th>Totals</th>
+                                        <th>Amount</th>
+                                        <th></th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Lye & Liquid</td>
+                                        <td>0.66 grams</td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Oils & Fats</td>
+                                        <td>1.02 grams</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="table-heading">
+                                        <th>Total Batch Yield</th>
+                                        <th>3.02 grams</th>
+                                        <th></th>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group recipe-info">
+                                    <label>Recipe - Title</label>
+                                    <input class="form-control" type="text" value="Summer Soap Recipe" />
+                                    <br />
+                                    <label>Recipe - Comments / Notes</label>
+                                    <textarea class="form-control" rows="5"></textarea>
+                                </div>
+                                <button class="btn btn-xs btn-success">Print Results</button>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
