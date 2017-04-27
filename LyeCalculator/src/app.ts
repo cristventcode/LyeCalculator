@@ -27,7 +27,8 @@ namespace Main {
 
     let tolistBtn = document.getElementById("tolist-btn"),
         listHolder: any,
-        amountTableItem = document.getElementById("amount-table-items");
+        amountTableItem = document.getElementById("amount-table-items"),
+        amountTableHolder = document.getElementById("amount-table-holder");
 
     (function loadSelectList() {
         listHolder = document.getElementById("ingredient-select");
@@ -42,14 +43,31 @@ namespace Main {
 
     tolistBtn.addEventListener("click", function () {
         let selectionValue = listHolder.value;
-        thisSession.ingredients.push(1);
-        
-        let ingDetials = sampleData.filter(item => item.id == selectionValue)[0];
-        alert(ingDetials.name);
-
-        let ingTemplate = `<td><span class="ingredient-item"></span></td >
-                           <td><input class="form-control" />0</td>
-                           <td class="text-center"> <button class="btn btn-xs btn-default delete-this-btn" > X </button></td>`;
+        thisSession.ingredients.push(selectionValue);
+        renderAmountList();
+        toggleAmountHolder();
     });
+
+    function renderAmountList() {
+        var list = thisSession.ingredients;
+        amountTableItem.innerHTML = "";
+        for (let item in list) {
+            let ingName = sampleData.filter(name => name.id == list[item])[0].name;
+
+            let ingTemplate = `<td><span class="ingredient-item">${ingName}</span></td>
+                               <td><input class="form-control" value="0"/></td>
+                               <td class="text-center"><button class="btn btn-xs btn-default delete-btn">X</button></td>`;
+            let element = document.createElement("tr");
+            element.innerHTML = ingTemplate;
+            amountTableItem.appendChild(element);
+        }
+    }
+
+    function toggleAmountHolder() {
+        let table = amountTableHolder,
+            amount: number = thisSession.ingredients.length;
+        (amount > 0) ? table.classList.remove("hidden") : table.classList.add("hidden");
+    }
 }
+
 
