@@ -37,6 +37,7 @@ namespace Main {
     }
     // -- Classes end --
 
+
     // Set sample data object
     const sampleData: ingredient[] = [
         { id: 1, name: "Almond Oil", solid: .14, liquid: .21 },
@@ -135,6 +136,7 @@ namespace Main {
         return sampleData.filter(item => item.id == searchId)[0];
     }
 
+
     function renderResultData() {
         let tableElement = document.createElement("table");
 
@@ -150,7 +152,7 @@ namespace Main {
 
         for (let item in thisResults.ingredientList) {
             let list = thisResults.ingredientList;
-            let template = `<tr><td>${list[item].name}</td> <td>${list[item].amount} </td> <td>${list[item].amount / thisResults.oilsAndFats} </td></tr>`;
+            let template = `<tr><td>${list[item].name}</td> <td>${(list[item].amount).toFixed(2)} </td> <td>${((list[item].amount / thisResults.oilsAndFats) * 100).toFixed(1)} % </td></tr>`;
             ingRowsElements += template;
         }
 
@@ -184,7 +186,7 @@ namespace Main {
                         <tr>
                             <td><b>Total</b></td>
                             <td>1.00 g</td>
-                            <td>100%</td>
+                            <td>100 %</td>
                         </tr>
                         <tr>
                         <tr class="table-heading">
@@ -209,13 +211,13 @@ namespace Main {
                         </tr>
 `;
 
-    var genTable = document.getElementById("result-table-holder");
+        var genTable = document.getElementById("result-table-holder");
 
-    genTable.innerHTML = "";
-    
-    tableElement.innerHTML = tableTemplate;
+        genTable.innerHTML = "";
 
-    genTable.appendChild(tableElement);
+        tableElement.innerHTML = tableTemplate;
+
+        genTable.appendChild(tableElement);
     }
 
 }
