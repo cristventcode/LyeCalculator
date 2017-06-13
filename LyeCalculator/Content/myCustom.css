@@ -1,6 +1,11 @@
 ﻿body {
 }
 
+.error-message{
+    color: red;
+    margin: 10px 0px;
+}
+
 table tr:last-child td:first-child {
     border-bottom-left-radius: 10px;
 }
@@ -8,7 +13,6 @@ table tr:last-child td:first-child {
 table tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
-
 
 table {
     border-collapse: initial;

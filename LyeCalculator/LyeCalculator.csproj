@@ -213,6 +213,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lyePageActions.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\page-actions.js" />
     <Content Include="Scripts\respond.js" />
