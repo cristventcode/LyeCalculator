@@ -24,8 +24,9 @@ var Main;
     var ingredientInput = (function (_super) {
         __extends(ingredientInput, _super);
         function ingredientInput() {
-            _super.apply(this, arguments);
-            this.amount = 0;
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.amount = 0;
+            return _this;
         }
         ingredientInput.prototype.addAmount = function (ing, amount) {
             this.id = ing.id,
