@@ -42,12 +42,13 @@ var step1Container = document.getElementById("step1-container"),
     collapse3 = document.getElementById("collapse3");
 
 //Step buttons
-var step1Submit = document.getElementById("step1-submit");
+var step1Submit = document.getElementById("step1-submit"),
+    step2Submit = document.getElementById("step2-submit");
 
 // Other containers 
 var amountTableHolder = document.getElementById("amount-table-holder");
 
-// Step 1 submit
+// Step 1 button actions
 step1Submit.addEventListener("click", function () {
     if (typeSelect.value == "-1" || typeSelect.unit == "-1") {
         document.getElementById("step1-error").innerText = "Please select TYPE and UNIT"
@@ -78,6 +79,39 @@ function toggleContainer(container, action) {
 // Add amounts and oil to data object
 $(document).on('change', ".ing-input", function (event) {
     var oil = event.currentTarget.previousElementSibling.innerText.toString();
-    var amount = parseInt(event.currentTarget.value);
+    var amount = parseFloat(event.currentTarget.value);
     step2[oil] = amount;
+});
+
+
+// Step 2 button actions
+step2Submit.addEventListener("click", function () {
+    toggleContainer(step3Container, "show")
+    switchCollapse(collapse2, collapse3);
+    console.log(step2)
+    genResults();
 })
+
+
+// templates
+var trTemplate = "<tr><td>{name}</td><td>{amount}</td><td>{percent}</td></tr>";
+
+function genResults() {
+    var locationList = document.getElementById("ing-list-section");
+
+
+    var total = 0;
+
+    for (var item in step2) {
+        total += step2[item];
+    }
+
+    total = total.toFixed(2);
+
+    console.log(total);
+
+
+    for (var item in step2) {
+        $(locationList).after("<tr> <td>" + item + "</td><td>" + step2[item].toFixed(2) + " g</td><td>" + ((step2[item] / total) * 100).toFixed(1) + " %</td> </tr>");
+    }
+}

@@ -38,15 +38,15 @@
                         </div>
 
                         @*<div class="form-group">
-                            <select id="fat-select" class="form-control">
-                                <option selected="selected" value="-1">Superfatting Level</option>
-                                <option value="0">None</option>
-                                @for (var x = 2; x <= 10; x++)
-                                {
-                                    <option value="@x"> @x%</option>
-                                }
-                            </select>
-                        </div>*@
+                                <select id="fat-select" class="form-control">
+                                    <option selected="selected" value="-1">Superfatting Level</option>
+                                    <option value="0">None</option>
+                                    @for (var x = 2; x <= 10; x++)
+                                    {
+                                        <option value="@x"> @x%</option>
+                                    }
+                                </select>
+                            </div>*@
                         <button id="step1-submit" class="btn btn-xs btn-success"> Add Ingredients </button>
                     </div>
                 </div>
@@ -103,35 +103,35 @@
                                 </div>
                             </div>
 
-                            
+
                             @*<div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Select Ingredient:</label>
-                                    <select class="form-control" id="ingredient-select"></select>
+                                    <div class="form-group">
+                                        <label>Select Ingredient:</label>
+                                        <select class="form-control" id="ingredient-select"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-md btn-default" id="tolist-btn"> Add </button>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <button class="btn btn-md btn-default" id="tolist-btn"> Add </button>
-                                </div>
-                            </div>
 
 
-                            <div id="amount-table-holder" class="col-sm-8">
-                                <label>Your Ingredients:</label>
-                                <table class="table" id="amount-table">
-                                    <thead>
-                                        <tr class="table-heading">
-                                            <th>Ingredient</th>
-                                            <th>Amount (g)</th>
-                                            <th class="text-center">X</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="amount-table-items"></tbody>
-                                </table>
-                                <button class="btn btn-xs btn-success" id="get-results-btn"> Get Results </button>
-                            </div>*@
+                                <div id="amount-table-holder" class="col-sm-8">
+                                    <label>Your Ingredients:</label>
+                                    <table class="table" id="amount-table">
+                                        <thead>
+                                            <tr class="table-heading">
+                                                <th>Ingredient</th>
+                                                <th>Amount (g)</th>
+                                                <th class="text-center">X</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="amount-table-items"></tbody>
+                                    </table>
+                                    <button class="btn btn-xs btn-success" id="get-results-btn"> Get Results </button>
+                                </div>*@
                         </div>
                         <hr />
-                        <button class="btn btn-sm btn-success" id="get-results-btn"> Get Results </button>
+                        <button class="btn btn-sm btn-success" id="step2-submit"> Get Results </button>
 
                     </div>
 
@@ -147,75 +147,64 @@
                 </div>
                 <div id="collapse3" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <h4>A <b>Solid</b> soap, measured in <b>g</b> with a superfat of <b>0%</b></h4>
+                        <h4>A <b>solid</b> soap, measured in <b>g</b> with a superfat of <b>0%</b></h4>
                         <hr />
 
                         <div class="row">
                             <div class="col-sm-6" id="result-table-holder">
-                                @*<table class="table" id="result-table">
-                                        <tr class="table-heading">
-                                            <th>Lye & Liquid</th>
-                                            <th>Amount</th>
-                                            <th></th>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Lye (Sodium Hydroxide)</td>
-                                            <td>0.36 g</td>
-                                            <td></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>g of liquid</td>
-                                            <td>0.66 g</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><b>Total</b></td>
-                                            <td>1.02 g</td>
-                                            <td></td>
-                                        </tr>
-
-                                        <tr class="table-heading">
-                                            <th>Oils & Fats</th>
-                                            <th>Amount</th>
-                                            <th>%</th>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Aloe Butter</td>
-                                            <td>1.00 g</td>
-                                            <td>100%</td>
-                                        </tr>
-                                        <tr>
-                                            <td><b>Total</b></td>
-                                            <td>1.00 g</td>
-                                            <td>100%</td>
-                                        </tr>
-                                        <tr>
-                                        <tr class="table-heading">
-                                            <th>Totals</th>
-                                            <th>Amount</th>
-                                            <th></th>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Lye & Liquid</td>
-                                            <td>0.66 g</td>
-                                            <td></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Oils & Fats</td>
-                                            <td>1.02 g</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="table-heading">
-                                            <th>Total Batch Yield</th>
-                                            <th>3.02 g</th>
-                                            <th></th>
-                                        </tr>
-                                    </table>*@
+                                <table class="table" id="result-table">
+                                    <tr class="table-heading">
+                                        <th>Lye & Liquid</th>
+                                        <th>Amount</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Lye (Sodium Hydroxide)</td>
+                                        <td id="lye-amount">0.36 g</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>g of liquid</td>
+                                        <td id="weight">0.66 g</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Total</b></td>
+                                        <td id="lye-weight-total">1.02 g</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr id="ing-list-section" class="table-heading">
+                                        <th>Oils & Fats</th>
+                                        <th>Amount</th>
+                                        <th>%</th>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Total</b></td>
+                                        <td>1.00 g</td>
+                                        <td>100%</td>
+                                    </tr>
+                                    <tr>
+                                    <tr class="table-heading">
+                                        <th>Totals</th>
+                                        <th>Amount</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Lye & Liquid</td>
+                                        <td id="total-lye-liquid">0.66 g</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Oils & Fats</td>
+                                        <td id="total-oils-fat">1.02 g</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="table-heading">
+                                        <th>Total Batch Yield</th>
+                                        <th id="batch-total">3.02 g</th>
+                                        <th></th>
+                                    </tr>
+                                </table>
                             </div>
 
                             <div class="col-sm-6">
