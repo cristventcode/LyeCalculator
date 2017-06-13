@@ -8,21 +8,24 @@ var sampleData = [
 ];
 
 // Load ingredient select inputs
-$(document).ready(function () {
-    listHolder = document.getElementById("ingredient-select");
-    for (let ing in sampleData) {
-        let element = document.createElement("option");
-        element.innerText = sampleData[ing].name;
-        element.value = sampleData[ing].id.toString();
-        listHolder.appendChild(element);
-    };
-})
+//$(document).ready(function () {
+//    listHolder = document.getElementById("ingredient-select");
+//    for (let ing in sampleData) {
+//        let element = document.createElement("option");
+//        element.innerText = sampleData[ing].name;
+//        element.value = sampleData[ing].id.toString();
+//        listHolder.appendChild(element);
+//    };
+//})
 
 // Step 1 object data
 var step1 = {
     type: "",
     unit: "",
     superFat: 0
+}
+
+var step2 = {
 }
 
 // Step 1 selects 
@@ -38,8 +41,11 @@ var step1Container = document.getElementById("step1-container"),
     step3Container = document.getElementById("step3-container"),
     collapse3 = document.getElementById("collapse3");
 
-//buttons
+//Step buttons
 var step1Submit = document.getElementById("step1-submit");
+
+// Other containers 
+var amountTableHolder = document.getElementById("amount-table-holder");
 
 // Step 1 submit
 step1Submit.addEventListener("click", function () {
@@ -68,3 +74,10 @@ function toggleContainer(container, action) {
         container.classList.add("hidden");
     }
 }
+
+// Add amounts and oil to data object
+$(document).on('change', ".ing-input", function (event) {
+    var oil = event.currentTarget.previousElementSibling.innerText.toString();
+    var amount = parseInt(event.currentTarget.value);
+    step2[oil] = amount;
+})
