@@ -1,11 +1,19 @@
 ﻿// Sample data
-var sampleData = [
-    { id: 1, name: "Almond Oil", solid: .14, liquid: .21 },
-    { id: 2, name: "Avocado Butter", solid: .13, liquid: .20 },
-    { id: 3, name: "Castor Oil", solid: .14, liquid: .19 },
-    { id: 4, name: "Kokum Butter", solid: .14, liquid: .20 },
-    { id: 5, name: "Mango Butter", solid: .14, liquid: .20 },
-];
+//var sampleData = [
+//    { id: 1, name: "Almond Oil", solid: .14, liquid: .21 },
+//    { id: 2, name: "Avocado Butter", solid: .13, liquid: .20 },
+//    { id: 3, name: "Castor Oil", solid: .14, liquid: .19 },
+//    { id: 4, name: "Kokum Butter", solid: .14, liquid: .20 },
+//    { id: 5, name: "Mango Butter", solid: .14, liquid: .20 },
+//];
+
+var ingredients = {
+    "Almond Oil": { solid: .14, liquid: .21 },
+    "Avocado Butter": { solid: .13, liquid: .20 },
+    "Castor Oil": { solid: .14, liquid: .19 },
+    "Kokum Butter": { solid: .14, liquid: .20 },
+    "Mango Butter": { solid: .14, liquid: .20 }
+}
 
 // Load ingredient select inputs
 //$(document).ready(function () {
@@ -92,24 +100,34 @@ step2Submit.addEventListener("click", function () {
     genResults();
 })
 
-
-// templates
-var trTemplate = "<tr><td>{name}</td><td>{amount}</td><td>{percent}</td></tr>";
-
+// Display Results
 function genResults() {
-    var locationList = document.getElementById("ing-list-section");
-
+    var locationList = document.getElementById("ing-list-section"),
+        lyeFatTotal = document.getElementById("lye-fat-total"),
+        weight = document.getElementById("weight"),
+        lyeAmountTd = document.getElementById("lye-amount"),
+        lyeWeightTotal = document.getElementById("lye-weight-total");
 
     var total = 0;
-
     for (var item in step2) {
         total += step2[item];
     }
 
-    total = total.toFixed(2);
+    var lyeAmount = 0;
 
-    console.log(total);
+    for (var item in step2) {
+        lyeAmount += step2[item] * ingredients[item].solid;
+    }
 
+    lyeAmountTd.innerText = lyeAmount.toFixed(2) + " g";
+
+    lyeFatTotal.innerText = total.toFixed(2) + " g";
+
+    weight.innerText = (total * .33).toFixed(2) + " g";
+
+    var weightTemp = (total * .33).toFixed(2)
+
+    lyeWeightTotal.innerText = (lyeAmount + parseFloat(weightTemp)).toFixed(2) + " g";
 
     for (var item in step2) {
         $(locationList).after("<tr> <td>" + item + "</td><td>" + step2[item].toFixed(2) + " g</td><td>" + ((step2[item] / total) * 100).toFixed(1) + " %</td> </tr>");
