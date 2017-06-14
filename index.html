@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title> Title </title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
+  <!-- Custom CSS styling -->
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+  <div id="content-wrapper">
+    <main class="container col-md-12">
+
+      <h2> Lye Calculator</h2>
+      <br />
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            Step 1 - Type / Units
+                        </a>
+                </h4>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <h4>Choose your soap type and measurement units.</h4>
+                  <hr />
+                  <div class="form-group">
+                    <select id="type-select" class="form-control">
+                                <option selected="selected" value="-1">Type</option>
+                                <option value="solid">Solid</option>
+                                <option value="liquid">Liquid</option>
+                            </select>
+                  </div>
+                  <div class="form-group">
+                    <select id="unit-select" class="form-control">
+                                <option selected="selected" value="-1">Unit</option>
+                                <option value="ounce">Ounces</option>
+                                <option value="gram">Grams</option>
+                            </select>
+                  </div>
+
+                  <div id="step1-error" class="error-message">
+
+                  </div>
+                  <button id="step1-submit" class="btn btn-xs btn-success"> Add Ingredients </button>
+                </div>
+              </div>
+            </div>
+            <div id="step2-container" class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                            Step 2 - Ingredients
+                        </a>
+                </h4>
+              </div>
+              <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                  <h4>What are your ingredient amounts by weight? </h4>
+                  <hr />
+                  <div class="row">
+
+                    <div class="col-xs-6">
+                      <div class="form-group">
+                        <label class="control-label" for="form-group-input">Almond Oil</label>
+                        <input type="text" class="form-control ing-input" id="form-group-input" placeholder="0">
+                      </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                      <div class="form-group">
+                        <label class="control-label" for="form-group-input">Avocado Butter</label>
+                        <input type="text" class="form-control ing-input" id="form-group-input" placeholder="0">
+                      </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                      <div class="form-group">
+                        <label class="control-label" for="form-group-input">Castor Oil</label>
+                        <input type="text" class="form-control ing-input" id="form-group-input" placeholder="0">
+                      </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                      <div class="form-group">
+                        <label class="control-label" for="form-group-input">Kokum Butter</label>
+                        <input type="text" class="form-control ing-input" id="form-group-input" placeholder="0">
+                      </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                      <div class="form-group">
+                        <label class="control-label" for="form-group-input">Mango Butter</label>
+                        <input type="text" class="form-control ing-input" id="form-group-input" placeholder="0">
+                      </div>
+                    </div>
+
+                  </div>
+                  <hr />
+                  <button class="btn btn-sm btn-success" id="step2-submit"> Get Results </button>
+
+                </div>
+
+              </div>
+            </div>
+            <div id="step3-container" class="panel panel-default hidden">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                            Step 3 - Results
+                        </a>
+                </h4>
+              </div>
+              <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <!--<h4>A <b>solid</b> soap, measured in <b>g</b> with a superfat of <b>0%</b></h4>-->
+
+                  <div class="row">
+                    <div class="col-sm-6" id="result-table-holder">
+                      <table class="table" id="result-table">
+                        <tr class="table-heading">
+                          <th>Lye & Liquid</th>
+                          <th>Amount</th>
+                          <th></th>
+                        </tr>
+                        <tr>
+                          <td>Lye (Sodium Hydroxide)</td>
+                          <td id="lye-td"></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>g of liquid</td>
+                          <td id="weight-td"></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><b>Total</b></td>
+                          <td id="lyeWeight-td"></td>
+                          <td></td>
+                        </tr>
+                        <tr id="ing-list-section" class="table-heading">
+                          <th>Oils & Fats</th>
+                          <th>Amount</th>
+                          <th>%</th>
+                        </tr>
+                        <tr>
+                          <td><b>Total</b></td>
+                          <td id="oilsFats-td"></td>
+                          <td>100 %</td>
+                        </tr>
+                        <tr>
+                          <tr class="table-heading">
+                            <th>Totals</th>
+                            <th>Amount</th>
+                            <th></th>
+                          </tr>
+                          <tr>
+                            <td>Lye & Liquid</td>
+                            <td id="total-lyeWeight-td"></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Oils & Fats</td>
+                            <td id="total-oilsFats-td"></td>
+                            <td></td>
+                          </tr>
+                          <tr class="table-heading">
+                            <th>Total Batch Yield</th>
+                            <th id="total-batch-td"></th>
+                            <th></th>
+                          </tr>
+                      </table>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <div class="form-group recipe-info">
+                        <label>Recipe - Title</label>
+                        <input class="form-control" type="text" value="Summer Soap Recipe" />
+                        <br />
+                        <label>Recipe - Comments / Notes</label>
+                        <textarea class="form-control" rows="5"></textarea>
+                      </div>
+                      <button class="btn btn-xs btn-success">Print Results</button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </main>
+    <footer class="container">
+      <small>&copy; 2017 Basic HTML starter</small>
+    </footer>
+  </div>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="/js/action.js"></script>
+</body>
+
+</html>

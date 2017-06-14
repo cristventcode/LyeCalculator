@@ -1,4 +1,4 @@
-﻿// Sample data
+// Sample data
 //var sampleData = [
 //    { id: 1, name: "Almond Oil", solid: .14, liquid: .21 },
 //    { id: 2, name: "Avocado Butter", solid: .13, liquid: .20 },
@@ -8,11 +8,26 @@
 //];
 
 var ingredients = {
-    "Almond Oil": { solid: .14, liquid: .21 },
-    "Avocado Butter": { solid: .13, liquid: .20 },
-    "Castor Oil": { solid: .14, liquid: .19 },
-    "Kokum Butter": { solid: .14, liquid: .20 },
-    "Mango Butter": { solid: .14, liquid: .20 }
+    "Almond Oil": {
+        solid: .14,
+        liquid: .21
+    },
+    "Avocado Butter": {
+        solid: .13,
+        liquid: .20
+    },
+    "Castor Oil": {
+        solid: .14,
+        liquid: .19
+    },
+    "Kokum Butter": {
+        solid: .14,
+        liquid: .20
+    },
+    "Mango Butter": {
+        solid: .14,
+        liquid: .20
+    }
 }
 
 // Load ingredient select inputs
@@ -33,8 +48,7 @@ var step1 = {
     superFat: 0
 }
 
-var step2 = {
-}
+var step2 = {}
 
 // Step 1 selects 
 var typeSelect = document.getElementById("type-select"),
@@ -100,34 +114,63 @@ step2Submit.addEventListener("click", function () {
     genResults();
 })
 
+
+
+
+//
+var results = {
+    lye: 0,
+    weight: 0,
+    lyeWeightTotal: 0,
+    ingTotal: 0,
+    lyeLiquid: 0,
+    oilsFats: 0,
+    batchTotal: 0
+}
+
 // Display Results
 function genResults() {
     var locationList = document.getElementById("ing-list-section"),
-        lyeFatTotal = document.getElementById("lye-fat-total"),
-        weight = document.getElementById("weight"),
-        lyeAmountTd = document.getElementById("lye-amount"),
-        lyeWeightTotal = document.getElementById("lye-weight-total");
+        lyeTd = document.getElementById("lye-td"),
+        weightTd = document.getElementById("weight-td"),
+        lyeWeightTd = document.getElementById("lyeWeight-td"),
+        oilsFatsTd = document.getElementById("oilsFats-td"),
+        totalLyeWeightTd = document.getElementById("total-lyeWeight-td"),
+        totalOilsFatsTd = document.getElementById("total-oilsFats-td"),
+        totalBatchTd = document.getElementById("total-batch-td");
 
     var total = 0;
     for (var item in step2) {
         total += step2[item];
     }
 
+    results.ingTotal = total;
+
     var lyeAmount = 0;
 
     for (var item in step2) {
-        lyeAmount += step2[item] * ingredients[item].solid;
+        lyeAmount += parseFloat(step2[item] * ingredients[item].solid);
     }
 
-    lyeAmountTd.innerText = lyeAmount.toFixed(2) + " g";
+    results.lye = (lyeAmount);
 
-    lyeFatTotal.innerText = total.toFixed(2) + " g";
+    var inputWeight = (total * .33);
 
-    weight.innerText = (total * .33).toFixed(2) + " g";
+    results.weight = parseFloat(inputWeight);
+    results.lyeLiquid = parseFloat(results.lye + results.weight);
+    results.oilsFats = results.ingTotal;
+    results.lyeWeightTotal = results.lyeLiquid;
+    results.batchTotal = results.oilsFats + results.lyeWeightTotal;
 
-    var weightTemp = (total * .33).toFixed(2)
+    console.log(results);
 
-    lyeWeightTotal.innerText = (lyeAmount + parseFloat(weightTemp)).toFixed(2) + " g";
+    lyeTd.innerText = results.lye.toFixed(2) + " g";
+    weightTd.innerText = results.weight.toFixed(2) + " g";
+    lyeWeightTd.innerText = results.lyeLiquid.toFixed(2) + " g";
+    oilsFatsTd.innerText = (results.ingTotal).toFixed(2) + " g";
+    totalLyeWeightTd.innerText = results.lyeWeightTotal.toFixed(2) + " g";
+    totalOilsFatsTd.innerText = results.oilsFats.toFixed(2) + " g";
+    totalBatchTd.innerText = results.batchTotal.toFixed(2) + " g";
 
     for (var item in step2) {
         $(locationList).after("<tr> <td>" + item + "</td><td>" + step2[item].toFixed(2) + " g</td><td>" + ((step2[item] / total) * 100).toFixed(1) + " %</td> </tr>");
