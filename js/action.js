@@ -119,8 +119,13 @@ var results = {
 function genResults() {
     fillResults();
     displayResults();
+    displayIngList();
+}
+
+function displayIngList() {
+    var u = (step1.unit == "gram") ? " g" : " oz";
     for (var item in step2) {
-        $(locationList).after("<tr> <td>" + item + "</td><td>" + step2[item].toFixed(2) + " g</td><td>" + ((step2[item] / results.ingTotal) * 100).toFixed(1) + " %</td> </tr>");
+        $(locationList).after("<tr> <td>" + item + "</td><td>" + step2[item].toFixed(2) + u + "</td><td>" + ((step2[item] / results.ingTotal) * 100).toFixed(1) + " %</td> </tr>");
     }
 }
 
@@ -163,11 +168,17 @@ function fillResults() {
 }
 
 function displayResults() {
-    lyeTd.innerText = results.lye.toFixed(2) + " g";
-    weightTd.innerText = results.weight.toFixed(2) + " g";
-    lyeWeightTd.innerText = results.lyeLiquid.toFixed(2) + " g";
-    oilsFatsTd.innerText = (results.ingTotal).toFixed(2) + " g";
-    totalLyeWeightTd.innerText = results.lyeWeightTotal.toFixed(2) + " g";
-    totalOilsFatsTd.innerText = results.oilsFats.toFixed(2) + " g";
-    totalBatchTd.innerText = results.batchTotal.toFixed(2) + " g";
+    var u = (step1.unit == "gram") ? " g" : " oz";
+
+    lyeTd.innerText = results.lye.toFixed(2) + u;
+    weightTd.innerText = results.weight.toFixed(2) + u;
+    lyeWeightTd.innerText = results.lyeLiquid.toFixed(2) + u;
+    oilsFatsTd.innerText = (results.ingTotal).toFixed(2) + u;
+    totalLyeWeightTd.innerText = results.lyeWeightTotal.toFixed(2) + u;
+    totalOilsFatsTd.innerText = results.oilsFats.toFixed(2) + u;
+    totalBatchTd.innerText = results.batchTotal.toFixed(2) + u;
 }
+
+$("#print-page-btn").click(function(){
+    window.print();
+})

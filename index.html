@@ -24,7 +24,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
+            <div id="step1-container" class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
@@ -54,7 +54,7 @@
                   <div id="step1-error" class="error-message">
 
                   </div>
-                  <button id="step1-submit" class="btn btn-xs btn-success"> Add Ingredients </button>
+                  <button id="step1-submit" class="btn btn-sm btn-success"> Add Ingredients </button>
                 </div>
               </div>
             </div>
@@ -126,8 +126,6 @@
               </div>
               <div id="collapse3" class="panel-collapse collapse">
                 <div class="panel-body">
-                  <!--<h4>A <b>solid</b> soap, measured in <b>g</b> with a superfat of <b>0%</b></h4>-->
-
                   <div class="row">
                     <div class="col-sm-6" id="result-table-holder">
                       <table class="table" id="result-table">
@@ -188,12 +186,12 @@
                     <div class="col-sm-6">
                       <div class="form-group recipe-info">
                         <label>Recipe - Title</label>
-                        <input class="form-control" type="text" value="Summer Soap Recipe" />
+                        <input class="form-control" type="text" />
                         <br />
                         <label>Recipe - Comments / Notes</label>
                         <textarea class="form-control" rows="5"></textarea>
                       </div>
-                      <button class="btn btn-xs btn-success">Print Results</button>
+                      <button class="btn btn-sm btn-success" id="print-page-btn">Print Results</button>
 
                     </div>
                   </div>

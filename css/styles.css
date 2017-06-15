@@ -30,8 +30,7 @@ footer {
     text-align: center;
 }
 
-body {
-}
+
 
 .error-message{
     color: red;
@@ -97,5 +96,11 @@ table {
 
 }
 
+
+@media print{
+    #step1-container, #step2-container, h2, button{
+        display: none;
+    }
+}
 
 
