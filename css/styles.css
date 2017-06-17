@@ -3,36 +3,37 @@ body {
     padding-bottom: 20px;
 }
 
+
 /* Set padding to keep content from hitting the edges */
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
+
 .dl-horizontal dt {
     white-space: normal;
 }
 
+
 /* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
 textarea {
     max-width: 280px;
 }
 
-
-
-
 footer {
     text-align: center;
 }
 
-
-
-.error-message{
+.error-message {
     color: red;
     margin: 10px 0px;
 }
@@ -51,7 +52,7 @@ table {
     border-radius: 4px;
 }
 
-.table thead > tr > th {
+.table thead>tr>th {
     border-bottom: none;
 }
 
@@ -59,7 +60,7 @@ table {
     margin-top: 8px;
 }
 
-#amount-table > thead > tr > th:first-child {
+#amount-table>thead>tr>th:first-child {
     width: 50%;
 }
 
@@ -80,27 +81,34 @@ table {
     line-height: 1.428571429;
 }
 
+
 /*.result-tb-hd-total{
     background-color: lightgray;
     color: steelblue;
 }*/
 
-.recipe-info input, textarea{
+.recipe-info input,
+textarea {
     max-width: none;
 }
 
 @media (min-width: 768px) {
-    #amount-table > thead > tr > th:first-child {
+    #amount-table>thead>tr>th:first-child {
         width: 30%;
     }
-
 }
 
+@media print {
+    #step1-container,
+    #step2-container,
+    h2,
+    button,.panel-heading, footer {
+        display: none !important;
+    }
+    
+    .print-view{
+        width: 50% !important;
 
-@media print{
-    #step1-container, #step2-container, h2, button{
-        display: none;
+        float:left !important;
     }
 }
-
-
