@@ -47,8 +47,10 @@ var step1Container = document.getElementById("step1-container"),
 var step1Submit = document.getElementById("step1-submit"),
     step2Submit = document.getElementById("step2-submit");
 
-// Other containers 
-var amountTableHolder = document.getElementById("amount-table-holder");
+// Other elements 
+var amountTableHolder = document.getElementById("amount-table-holder"),
+    lyeTypeSpan = document.getElementById("lye-type"),
+    unitTypeSpan = document.getElementById("unit-type");
 
 // Table data elements for results 
 var locationList = document.getElementById("ing-list-section"),
@@ -117,6 +119,7 @@ var results = {
 
 // Display Results
 function genResults() {
+    clearResultIngList();
     fillResults();
     displayResults();
     displayIngList();
@@ -125,8 +128,14 @@ function genResults() {
 function displayIngList() {
     var u = (step1.unit == "gram") ? " g" : " oz";
     for (var item in step2) {
-        $(locationList).after("<tr> <td>" + item + "</td><td>" + step2[item].toFixed(2) + u + "</td><td>" + ((step2[item] / results.ingTotal) * 100).toFixed(1) + " %</td> </tr>");
+        if (step2[item] !== 0) {
+            $(locationList).after('<tr class="result-ing"> <td>' + item + '</td><td>' + step2[item].toFixed(2) + u + '</td><td>' + ((step2[item] / results.ingTotal) * 100).toFixed(1) + ' %</td> </tr>');
+        }
     }
+}
+
+function clearResultIngList() {
+    $(".result-ing").remove();
 }
 
 function getInputAmount(total) {
@@ -165,6 +174,9 @@ function fillResults() {
     results.oilsFats = results.ingTotal;
     results.lyeWeightTotal = results.lyeLiquid;
     results.batchTotal = results.oilsFats + results.lyeWeightTotal;
+
+    lyeTypeSpan.innerText = (step1.type == "solid") ? "Sodium Hydroxide" : "Potassium Hydroxide";
+    unitTypeSpan.innerText = (step1.unit == "gram") ? "Grams" : "Ounces";
 }
 
 function displayResults() {
@@ -179,6 +191,6 @@ function displayResults() {
     totalBatchTd.innerText = results.batchTotal.toFixed(2) + u;
 }
 
-$("#print-page-btn").click(function(){
+$("#print-page-btn").click(function () {
     window.print();
 })
